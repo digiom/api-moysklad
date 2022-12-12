@@ -269,7 +269,6 @@ final class HttpRequestExecutor
 		try
 		{
 			$response = $this->httpClient->sendRequest($request);
-
 			if($this->isOkResponse($response))
 			{
 				throw new ClientException($request->getMethod() . ' ' . $request->getUri(), $response->getStatusCode(), $response->getReasonPhrase());
@@ -308,12 +307,12 @@ final class HttpRequestExecutor
 	/**
 	 * Выполняет GET-запрос с указанными ранее параметрами и конвертирует ответ в объект указанного класса
 	 *
-	 * @param string $className Класс, в который нужно конвертировать ответ на запрос
+	 * @param string|void $className Класс, в который нужно конвертировать ответ на запрос
 	 *
 	 * @return mixed
 	 * @throws ClientException Когда возникла ошибка API
 	 */
-	public function get(string $className)
+	public function get($className)
 	{
 		$request = new RequestGet($this->getFullUrl(), $this->headers);
 
