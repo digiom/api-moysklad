@@ -212,7 +212,7 @@ final class HttpRequestExecutor
 	 *
 	 * @return HttpRequestExecutor
 	 */
-	public function body(MetaEntity $body): HttpRequestExecutor
+	public function body($body): HttpRequestExecutor
 	{
 		$this->body = $body;
 		return $this;
